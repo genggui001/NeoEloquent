@@ -198,14 +198,10 @@ class Grammar extends IlluminateGrammar {
         // @see https://github.com/Vinelab/NeoEloquent/issues/49
         if (is_array($labels)) {
             foreach ($labels as $label) {
-                $firstChar = substr($label, 0, 1);
-                $suffix = substr($label, 1, strlen($label) - 1);
-                $label = mb_strtolower($firstChar) . $suffix;
+                $label = lcfirst($label);
             }
         } else {
-            $firstChar = substr($labels, 0, 1);
-            $suffix = substr($labels, 1, strlen($labels) - 1);
-            $labels = mb_strtolower($firstChar) . $suffix;
+            $labels = lcfirst($labels);
         }
         return $labels;
     }
